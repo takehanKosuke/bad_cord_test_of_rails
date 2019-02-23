@@ -1,4 +1,4 @@
-<!-- <%= link_to "全記事表示", articles_path %>
+<%= link_to "全記事表示", articles_path %>
 <% @categories.each do |category| %>
   <%= link_to "#{category.name}の記事だけ表示", articles_path(category_id: category.id)  %>
 <% end %>
@@ -21,43 +21,4 @@
       <td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: "#{article.title}を削除しますか？" } %></td>
     </tr>
   <% end %>
-</table>
- -->
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-    <th>カテゴリー</th>
-    <th>ライター</th>
-    <th></th>
-    <th></th>
-  </tr><br />
-  <tr>
-    <td>test</td>
-    <td>naityu</td>
-    <!-- <td><%= link_to '新規作成', root_path %></td> -->
-    <td><%= link_to '編集', root_path %></td>
-    <td><%= link_to '削除', root_path %></td>
-  </tr><br />
-  <tr>
-    <td>test</td>
-    <td>naityu</td>
-    <!-- <td><%= link_to '新規作成', root_path %></td> -->
-    <td><%= link_to '編集', root_path %></td>
-    <td><%= link_to '削除', root_path %></td>
-  </tr>
-  <tr>
-    <td>---</td>
-    <td>---</td>
-    <td><%= link_to '新規作成', root_path %></td>
-    <!-- <td><%= link_to '編集', root_path %></td>
-    <td><%= link_to '削除', root_path %></td> -->
-  </tr><br />
-  <tr>
-    <td>---</td>
-    <td>---</td>
-    <td><%= link_to '新規作成', root_path %></td>
-    <!-- <td><%= link_to '編集', root_path %></td>
-    <td><%= link_to '削除', root_path %></td> -->
-  </tr><br />
 </table>
