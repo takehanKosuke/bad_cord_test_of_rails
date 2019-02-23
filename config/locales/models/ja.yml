@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      article: 記事
+      category: カテゴリー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+      article:
+        title: タイトル
+        body: 内容
+        category: カテゴリー
+      category:
+        name: カテゴリー名
+  enum:
+    article:
+      open: 公開
+      close: 非公開
