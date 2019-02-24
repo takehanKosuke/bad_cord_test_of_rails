@@ -1,24 +1,53 @@
-# README
+#クソコードレビュー大会専用コード!
+### 目的
+- このチームのエンジニアリングの能力を確かめる
+- 他の人がどんなことに気をつけてコーディングを行なっているのかを共有する。
+- 他人が書いたコードを見る練習をする。
+- みんなでスキルアップできたらいいな！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##前提
+- ruby 2.5.0  
+- rails 5.2.2  
 
-Things you may want to cover:
+テーブル構造は以下の通りです！  
+![テーブル構造](erd.pdf)  
 
-* Ruby version
+##要件
+| No | 機能 |
+|:------:|:------:|
+| 1 | ユーザーログイン機能 |
+| 2 | 記事投稿・編集・削除機能 |
+| 3 | 記事をジャンルごとに検索する機能 |
 
-* System dependencies
+・ユーザーが記事を投稿して、それを一覧で見ることができる
+・記事は作者自身のみが記事を編集・削除できる  
+・記事は公開・非公開を変更できる  
+・またユーザーは自分自身を削除することもできる
+・記事はジャンルごとに見ることができる  
+・ログインしていないユーザーは記事を見ることもできない  
+・論理削除は不要  
 
-* Configuration
 
-* Database creation
+##今回見たいところ
+・インデントなどの基本的なコーディングの仕方（フォーマット）に気を配れるか？  
+・railsで最もよく使うログインようのgemのdeviseの基本メソッドについて理解しているか？
+・セマンティックなコーディングを考えることができるか？  
+・より高速な処理を意識してコーディングを行うことができるか？  
+・最低限のセキュリティー（今回はSQLインジェクション/XSS)の知見があるか？（というかここはみんなで勉強してこ！俺もまだまだ初心者笑）  
 
-* Database initialization
 
-* How to run the test suite
+##railsで初期に入っているgem以外で追加したもの
+日本語化のためのgem  
+- gem 'i18n'  
 
-* Services (job queues, cache servers, search engines, etc.)
+enumのバリューを日本語化するgem  
+- gem 'enum_help'  
 
-* Deployment instructions
+ログイン機能を作成するgem
+- gem 'devise'  
 
-* ...
+railsのデバッグ用のgem
+- gem 'pry-rails'  
+
+er図を自動で出力するgem  
+- gem 'rails-erd'  
