@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
 
-  enum status: { open: 1, colse: 2 }
+  enum status: { open: 1, close: 2 }
 
   delegate :name,
            to: :category,

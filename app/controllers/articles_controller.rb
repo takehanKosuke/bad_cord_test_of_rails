@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to root_path, flash: { success: 'articleが作成されました' }
+      redirect_to @article, flash: { success: 'articleが作成されました' }
     else
       render :new
     end
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to root_path, flash: { success: 'articleが更新されました' }
+      redirect_to @article, flash: { success: 'articleが更新されました' }
     else
       render :edit
     end
@@ -50,6 +50,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :body,
+      :status,
       :category_id,
       :user_id,
     )

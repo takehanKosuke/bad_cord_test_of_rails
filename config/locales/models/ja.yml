@@ -13,9 +13,11 @@ ja:
         title: タイトル
         body: 内容
         category: カテゴリー
+        status: 公開
       category:
         name: カテゴリー名
-  enum:
+  enums:
     article:
-      open: 公開
-      close: 非公開
+      status:
+        open: 公開
+        close: 非公開

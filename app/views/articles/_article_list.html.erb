@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>カテゴリー</th>
+    <th>ライター</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% articles.each do |article| %>
+    <tr>
+      <td><%= link_to "#{article.title}", article_path(article) %></td>
+      <td><%= simple_format(article.body) %></td>
+      <td><%= article.category_name %></td>
+      <td><%= "#{article.user_name}" %></td>
+      <% if article.user == current_user %>
+        <td><%= link_to '編集', edit_article_path(article) %></td>
+        <td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: "#{article.title}を削除しますか？" } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

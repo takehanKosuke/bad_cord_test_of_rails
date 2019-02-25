@@ -1,0 +1,4 @@
+<h1>マイページ</h1>
+<h2>名前：<%= current_user.name %></h2>
+<%= render 'articles/article_list', articles: @articles %>
+<%= link_to 'このユーザーのすべてのデータを削除する', user_path(current_user), method: :delete, data: { confirm: '本当にを削除しますか？' } %>
