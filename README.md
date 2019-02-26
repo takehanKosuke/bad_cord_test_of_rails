@@ -73,6 +73,7 @@ git checkout -b 自分の名前
 | 5 | views/articles　以下の全てのファイル |
 | 6 | views/layouts　以下の全てのファイル |
 | 7 | views/users/show |
+
 です！  
 もしこれ以外のファイルでも修正できるところがあれば修正してもらっても構いません
 
