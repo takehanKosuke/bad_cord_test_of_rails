@@ -51,7 +51,7 @@ railsのデバッグ用のgem
 er図を自動で出力するgem  
 - gem 'rails-erd'  
 
-## ルール
+## 事前準備
 ```git clone git@github.com:takehanKosuke/bad_cord_test_of_rails.git```  
 ↑のコマンドを叩いてコードをクローンしてください  
 
@@ -66,6 +66,27 @@ git branch
 ```
 と打ってみて、「*自分の名前」  
 となっていれば恐らく大丈夫です。不安な人は聞いてください
+
+その後
+```
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+rails s
+```
+上記を実行し
+```http://localhost:3000/```
+にアクセスしてログイン画面がでれば準備完了です  
+
+テスト用のuser名とパスワードは
+```
+メアド：test1@test.com  
+パスワード：111111
+```
+です！
+
+## ルール
 
 修正するディレクトリは  
 
