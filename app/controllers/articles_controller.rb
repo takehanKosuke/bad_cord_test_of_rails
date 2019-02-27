@@ -15,30 +15,18 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    if @article.save
-      redirect_to @article, flash: { success: 'articleが作成されました' }
-    else
-      render :new
-    end
+    @article.save
   end
 
   def edit
   end
 
   def update
-    if @article.update(article_params)
-      redirect_to @article, flash: { success: 'articleが更新されました' }
-    else
-      render :edit
-    end
+    @article.update(article_params)
   end
 
   def destroy
-    if @article.destroy
-      redirect_to root_path, flash: { success: 'articleが削除されました' }
-    else
-      redirect_to root_path, flash: { error: 'articleの削除に失敗しました' }
-    end
+    @article.destroy
   end
 
   private
