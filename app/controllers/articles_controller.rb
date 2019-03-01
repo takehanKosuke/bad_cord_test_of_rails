@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    articles = Article.open.includes(:category)
+    articles = Article.open
     @articles = Article.search_articles(articles, params)
     @categories = Category.all
   end

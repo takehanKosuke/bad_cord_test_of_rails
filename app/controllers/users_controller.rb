@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     unless User.find(params[:id]) == current_user
       redirect_to root_path
     end
-    @articles = current_user.articles.includes(:category)
+    @articles = current_user.articles
   end
 
   def destroy
