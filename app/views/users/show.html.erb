@@ -1,4 +1,25 @@
 <h1>マイページ</h1>
 <h2>名前：<%= current_user.name %></h2>
-<%= render 'articles/article_list', articles: @articles %>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>カテゴリー</th>
+    <th>ライター</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= link_to "#{article.title}", article_path(article) %></td>
+      <td><%= article.body.html_safe %></td>
+      <td><%= article.category.name %></td>
+      <td><%= "#{article.user.name}" %></td>
+      <% if article.user == current_user %>
+        <td><%= link_to '編集', edit_article_path(article) %></td>
+        <td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: "#{article.title}を削除しますか？" } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
 <%= link_to 'このユーザーのすべてのデータを削除する', user_path(current_user), method: :delete, data: { confirm: '本当にを削除しますか？' } %>
