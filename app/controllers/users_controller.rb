@@ -1,18 +1,15 @@
 class UsersController < ApplicationController
-  before_action :same_user?
-
   def show
+    unless User.find(params[:id]) == current_user
+      redirect_to root_path
+    end
     @articles = current_user.articles.includes(:category)
   end
 
   def destroy
-    current_user.destroy
-  end
-
-  private
-  def same_user?
     unless User.find(params[:id]) == current_user
       redirect_to root_path
     end
+    current_user.destroy
   end
 end

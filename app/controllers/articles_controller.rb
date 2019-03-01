@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show edit update destroy]
   def index
     articles = Article.open.includes(:category)
     @articles = Article.search_articles(articles, params)
@@ -7,6 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -19,21 +19,20 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
   end
 
   def update
+    @article = Article.find(params[:id])
     @article.update(article_params)
   end
 
   def destroy
+    @article = Article.find(params[:id])
     @article.destroy
   end
 
   private
-  def set_article
-    @article = Article.find(params[:id])
-  end
-
   def article_params
     params.require(:article).permit(
       :title,
