@@ -18,7 +18,7 @@
       <td><%= article.category.name %></td>
       <td><%= "#{article.user.name}" %></td>
       <% if article.user == current_user %>
-        <td><%= link_to '編集', edit_article_path(article) %></td>
+        <td><%= link_to "編集", edit_article_path(article) %></td>
         <td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: "#{article.title}を削除しますか？" } %></td>
       <% end %>
     </tr>
