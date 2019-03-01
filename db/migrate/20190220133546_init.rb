@@ -9,7 +9,6 @@ class Init < ActiveRecord::Migration[5.2]
       t.integer :user_id, null: false
       t.timestamps
     end
-    add_index :articles, [:category_id, :user_id]
 
     create_table :categories do |t|
       t.string :name, null:false

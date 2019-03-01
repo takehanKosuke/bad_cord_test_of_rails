@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2019_02_20_135142) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id", "user_id"], name: "index_articles_on_category_id_and_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
