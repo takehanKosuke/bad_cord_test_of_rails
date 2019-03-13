@@ -51,6 +51,7 @@ group :development do
 
   gem 'rails-erd'
   gem 'pry-rails'
+  gem 'rb-readline'
 end
 
 group :test do
