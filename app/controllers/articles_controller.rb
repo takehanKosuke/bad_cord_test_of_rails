@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show edit update destroy]
+  before_action :set_article, only: %i[edit update destroy]
   def index
     @articles = Article.search_articles(Article.open, params).includes(:category)
     @categories = Category.all
   end
 
   def show
+    @article = Article.open.find(params[:id])
   end
 
   def new
