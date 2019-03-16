@@ -92,21 +92,28 @@ rails s
 
 | No | ディレクトリ名 |
 |:------:|:------:|
-| 1 | controllers/articles_controller |
-| 2 | controllers/users_controller |
+| 1 | controllers/articles_controller.rb |
+| 2 | controllers/users_controller.rb |
 | 3 | models/article.rb |
 | 4 | models/user.rb |
 | 5 | views/articles　以下の全てのファイル |
 | 6 | views/layouts　以下の全てのファイル |
 | 7 | views/users/show |
+| 8 | db/seed.rb|
 
 です！  
 もしこれ以外のファイルでも修正できるところがあれば修正してもらっても構いません
 
-### 制限時間は３０〜６０分
+### 制限時間は３０〜６０分  
 （みんなの終わり方次第で調整しますw）
 基本的には何を見てもらっても構わないですし、実際に動かして見てバグを発見するのもオッケーです！  
-また、仕様について質問があれば適宜質問してください！  
+仕様について質問があれば適宜質問してください！  
+
+また今回新たにgemを追加しての実装は基本的には認めませんw  
+```ransack``` とかは特にダメですw  
+（これで察しの良い方は気づきます）
+
+以上！
 
 ## 提出方法
 コードの提出方法は、プルリクを作成する形で提出してください
