@@ -4,6 +4,8 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
+  validates :status, presence: true
+  validates :category_id, presence: true
 
   enum status: { open: 1, close: 2 }
 
