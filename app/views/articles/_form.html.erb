@@ -1,11 +1,5 @@
 <h1><%= current_page?(new_article_path)? "新規作成" : "編集" %></h1>
-<% if article.errors.any? %>
-  <ul>
-    <% article.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'layouts/errors', object: @article %>
 
 <%= form_with model: article, local: true do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
