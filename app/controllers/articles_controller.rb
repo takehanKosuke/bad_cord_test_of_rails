@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update destroy]
   def index
-    @articles = Article.search_articles(Article.open, params).includes(:category)
+    @articles = Article.search_articles(Article.open, params).includes(:category, :user)
     @categories = Category.all
   end
 
