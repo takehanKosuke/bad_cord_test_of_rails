@@ -111,7 +111,9 @@ http://localhost:3000/
 | 5 | views/articles　以下の全てのファイル |
 | 6 | views/layouts　以下の全てのファイル |
 | 7 | views/users/show |
-| 8 | db/seed.rb|
+| 8 | db/migrate/20190220133546_init.rb |
+| 9 | db/seed.rb |
+
 
 です！  
 もしこれ以外のファイルでも修正できるところがあれば修正してもらっても構いません
