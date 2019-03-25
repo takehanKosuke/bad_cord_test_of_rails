@@ -1,12 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update destroy]
   def index
-    @articles = Article.search_articles(Article.open, params).includes(:category, :user)
-    @categories = Category.all
+    @articles = Article.all.includes(:user)
   end
 
   def show
-    @article = Article.open.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -50,8 +49,6 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :body,
-      :status,
-      :category_id,
       :user_id,
     )
   end

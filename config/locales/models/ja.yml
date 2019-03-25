@@ -3,21 +3,18 @@ ja:
     models:
       user: ユーザー
       article: 記事
-      category: カテゴリー
     attributes:
       user:
         name: 名前
         email: メールアドレス
         password: パスワード
+        role: 権限
       article:
         title: タイトル
         body: 内容
-        category: カテゴリー
-        status: 公開
-      category:
-        name: カテゴリー名
+        pv: pv
   enums:
-    article:
-      status:
-        open: 公開
-        close: 非公開
+    user:
+      role:
+        normal: 通常ユーザー
+        admin: アドミンユーザー

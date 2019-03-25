@@ -1,5 +1,1 @@
-<%= link_to "全記事表示", articles_path %>
-<% @categories.each do |category| %>
-  <%= link_to "#{category.name}の記事だけ表示", articles_path(category_id: category.id)  %>
-<% end %>
 <%= render 'article_list', articles: @articles %>

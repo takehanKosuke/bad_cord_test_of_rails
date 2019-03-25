@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :same_user?
 
   def show
-    @articles = current_user.articles.includes(:category)
+    @articles = current_user.articles
   end
 
   def destroy

@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
 
   validates :name, presence: true
+
+  enum role: { normal: 1, admin: 2 }
 end
