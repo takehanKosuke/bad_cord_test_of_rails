@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[edit update destroy]
+  before_action :set_article, only: %i[show edit update destroy]
+
   def index
     @articles = Article.all.includes(:user)
   end
 
   def show
-    @article = Article.find(params[:id])
+    Article.increment_pv(@article)
   end
 
   def new
