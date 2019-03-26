@@ -5,6 +5,10 @@ class ArticlesController < ApplicationController
     @articles = Article.all.includes(:user)
   end
 
+  def search
+    @articles = Article.where('title LIKE ?', "%#{params[:title]}%").includes(:user)
+  end
+
   def show
     Article.increment_pv(@article)
   end
