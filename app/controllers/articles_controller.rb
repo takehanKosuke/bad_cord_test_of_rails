@@ -1,12 +1,17 @@
 class ArticlesController < ApplicationController
+
   def index
-    articles = Article.where(status: 1)
-    @articles = Article.search_articles(articles, params)
-    @categories = Category.all
+    @articles = Article.all
+  end
+
+  def search
+    @articles = Article.where('title LIKE "%#{params[:title]}%"')
   end
 
   def show
     @article = Article.find(params[:id])
+    @article.pv += 1
+    @article.save
   end
 
   def new
@@ -40,8 +45,6 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :body,
-      :status,
-      :category_id,
       :user_id,
     )
   end

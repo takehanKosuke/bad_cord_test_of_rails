@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       # カスタムカラム
       t.string :name, null: false
+      t.integer :role, null: false, default: 1
 
       t.timestamps null: false
     end
