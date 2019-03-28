@@ -11,7 +11,7 @@
     <th></th>
     <th></th>
   </tr>
-  <% @articles.each do |article| %>
+  <%= @articles.each do |article| %>
     <tr>
         <td><%= link_to article.title, article_path(article.id) %></td>
         <td><%= article.body.html_safe %></td>
