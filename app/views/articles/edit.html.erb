@@ -17,13 +17,5 @@
     <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
-  <div>
-    <%= f.label :category %>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-  </div>
-  <div>
-    <%= f.label :status %>
-    <%= f.select :status, Article.statuses_i18n.invert %>
-  </div>
   <%= f.submit "更新" %>
 <% end %>
