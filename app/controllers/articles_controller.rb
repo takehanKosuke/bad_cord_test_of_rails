@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.where("title LIKE #{params[:title]}")
+    @articles = Article.where("title LIKE '%"+params[:title]+"%'")
   end
 
   def show
