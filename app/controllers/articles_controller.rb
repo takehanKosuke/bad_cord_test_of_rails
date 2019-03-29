@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :article_author, only: %i[create edit update]
 
   def index
     @articles = Article.all.includes(:user)
@@ -48,6 +49,12 @@ class ArticlesController < ApplicationController
   private
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def article_author
+    if @article.user == current_user
+      redirect_to root_path
+    end
   end
 
   def article_params
