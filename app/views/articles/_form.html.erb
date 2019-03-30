@@ -2,7 +2,6 @@
 <%= render 'layouts/errors', object: @article %>
 
 <%= form_with model: article, local: true do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>

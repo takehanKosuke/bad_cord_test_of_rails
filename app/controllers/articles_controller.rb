@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show edit update destroy]
-  before_action :article_author, only: %i[create edit update]
+  before_action :article_author, only: %i[edit update destroy]
 
   def index
     @articles = Article.all.includes(:user)
@@ -11,15 +10,16 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
     Article.increment_pv(@article)
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     if @article.save
       redirect_to @article, flash: { success: 'articleが作成されました' }
     else
@@ -47,22 +47,14 @@ class ArticlesController < ApplicationController
   end
 
   private
-  def set_article
-    @article = Article.find(params[:id])
-  end
-
   def article_author
-    if @article.user == current_user
-      redirect_to root_path
-    end
+    @article = current_user.articles.find(params[:id])
   end
 
   def article_params
     params.require(:article).permit(
       :title,
       :body,
-      :user_id,
     )
   end
-
 end
