@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if current_user.destroy
+    redirect_to root_path if !current_user.adnin?
+    @user = User.find(parmas[:id])
+    if @user.destroy
       redirect_to root_path, flash: { success: 'userが削除されました' }
     else
       redirect_to root_path, flash: { error: 'userの削除に失敗しました' }

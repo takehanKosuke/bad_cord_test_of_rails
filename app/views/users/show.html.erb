@@ -2,7 +2,7 @@
 <h2>名前：<%= current_user.name %></h2>
 <h2>権限：<%= current_user.role_i18n %></h2>
 <%= render 'articles/article_list', articles: @articles %>
-<% if current_user.admin? %>
+<% if !current_user.admin? %>
   <h2>userリスト</h2>
   <%= render 'user_list', users: @users %>
 <% end %>
