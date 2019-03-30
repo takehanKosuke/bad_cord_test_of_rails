@@ -2,7 +2,22 @@
 <h2>名前：<%= current_user.name %></h2>
 <h2>権限：<%= current_user.role_i18n %></h2>
 <%= render 'articles/article_list', articles: @articles %>
-<% if !current_user.admin? %>
+<% if current_user.admin? %>
   <h2>userリスト</h2>
-  <%= render 'user_list', users: @users %>
+  <table>
+    <tr>
+      <th>名前</th>
+      <th>メアド</th>
+      <th>権限</th>
+      <th></th>
+    </tr>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role_i18n %></td>
+        <td><%= link_to '削除', user_path(user), method: :delete, data: { confirm: "#{user.name}を削除しますか？" } %></td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>
