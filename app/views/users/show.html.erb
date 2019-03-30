@@ -14,11 +14,27 @@
       <td><%= link_to article.title, article_path(article) %></td>
       <td><%= article.body.html_safe %></td>
       <td><%= "#{article.user.name}" %></td>
-      <% if article.user == current_user %>
-        <td><%= link_to '編集', edit_article_path(article) %></td>
-        <td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: "#{article.title}を削除しますか？" } %></td>
-      <% end %>
+      <td><%= link_to '編集', edit_article_path(article) %></td>
+      <td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: "#{article.title}を削除しますか？" } %></td>
     </tr>
   <% end %>
 </table>
-<%= link_to 'このユーザーのすべてのデータを削除する', user_path(current_user), method: :delete, data: { confirm: '本当にを削除しますか？' } %>
+<% if !current_user.admin? %>
+  <h2>userリスト</h2>
+  <table>
+    <tr>
+      <th>名前</th>
+      <th>メアド</th>
+      <th>権限</th>
+      <th></th>
+    </tr>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role_i18n %></td>
+        <td><%= link_to '削除', user_path(user), method: :delete, data: { confirm: "#{user.name}を削除しますか？" } %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

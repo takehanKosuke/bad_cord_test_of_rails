@@ -17,7 +17,7 @@
       <td><%= article.body.html_safe %></td>
       <td><%= '#{article.pv}pv' %></td>
       <td><%= article.user.name %></td>
-      <% if article.user == current_user || current_user.admin? %>
+      <% if article.user == current_user %>
         <td><%= link_to "編集", edit_article_path(article.id) %></td>
         <td><%= link_to '削除', article_path(article.id), data: { confirm: "#{article.title}を削除しますか？" } %></td>
       <% end %>

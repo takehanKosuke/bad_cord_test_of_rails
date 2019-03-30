@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
@@ -45,8 +45,6 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :body,
-      :user_id,
     )
   end
-
 end
