@@ -4,10 +4,6 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def search
-    @articles = Article.where("title LIKE '%"+params[:title]+"%'")
-  end
-
   def show
     @article = Article.find(params[:id])
     @article.pv += 1
@@ -15,7 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = current_user.articles.new
+    @article = Article.new
   end
 
   def create
@@ -45,6 +41,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :body,
+      :user_id
     )
   end
 end
