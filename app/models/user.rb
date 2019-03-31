@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-# TODO: アソシエーションを削除すること
   has_many :articles, dependent: :destroy
 
   validates :name, presence: true
