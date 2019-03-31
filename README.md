@@ -57,7 +57,7 @@ er図を自動で出力するgem
  - ruby 2.5.0
  - rails 5.2.2  
 
-```git clone git@github.com:takehanKosuke/bad_cord_test_of_rails.git```  
+```git clone git@github.com:takehanKosuke/bad-code-test.git```  
 ↑のコマンドを叩いてコードをクローンしてください  
 
 ```
