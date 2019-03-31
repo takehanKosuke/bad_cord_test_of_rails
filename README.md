@@ -57,10 +57,11 @@ er図を自動で出力するgem
  - ruby 2.5.0
  - rails 5.2.2  
 
-```git clone git@github.com:takehanKosuke/bad-code-test.git```  
+```git clone git@github.com:takehanKosuke/bad_cord_test_of_rails.git```  
 ↑のコマンドを叩いてコードをクローンしてください  
 
 ```
+cd bad_cord_test_of_rails
 git pull origin master  
 git checkout -b 自分の名前
 ```
@@ -106,7 +107,7 @@ http://localhost:3000/
 
 ## ルール
 ### 制限時間は６０分（みんなの終わり方次第で調整します）
- - 基本的には何を見てもらっても構わないですし、実際に動かして見てバグを発見するのもオッケーです！  
+ - 基本的には何を見てもらっても構わないですし、実際に動かして見てバグを発見するのもオッケーです!(ただし、僕のgitのアカウントから答えを見るのは禁止ですwもちろんコミットログから見ることもダメですw)
  - 指定したファイルのコードを修正する形で変更を行ってください。  
  - コードに対してコメントを書くという形での回答も許可はしますが、コードから修正してくれると個人的に嬉しいです
  - 新しくファイルやディレクトリを生成しても構いません  
