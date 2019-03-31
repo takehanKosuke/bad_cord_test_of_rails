@@ -62,7 +62,7 @@ er図を自動で出力するgem
 
 ```
 cd bad_cord_test_of_rails
-git pull origin master  
+git pull origin bad-coding
 git checkout -b 自分の名前
 ```
 ↑のコマンドを叩いてブランチを切ってください  
