@@ -57,29 +57,14 @@ er図を自動で出力するgem
  - ruby 2.5.0
  - rails 5.2.2  
 
-```git clone git@github.com:takehanKosuke/bad-code-test.git```  
-↑のコマンドを叩いてコードをクローンしてください  
+1. まずgithubのリポジトリの右上にあるフォークボタンを押してリポジトリをフォークしてください
+
+2. その後フォークしたリポジトリでクローンを行なってください  
+クローンがよく分からない人はここの記事をみてください
+https://qiita.com/YumaInaura/items/acff806290c8953d3185
 
 ```
-git pull origin master  
-git checkout -b 自分の名前
-```
-↑のコマンドを叩いてブランチを切ってください  
-(「自分の名前」と書いてあるところはそれぞれ自分の名前をローマ字で入力してください)  
-```
-git branch
-```
-と打ってみて、「*自分の名前」  
-となっていれば恐らく大丈夫です。不安な人は聞いてください
-
-その後
-
-```
-bundle install
-bundle exec rake db:create
-bundle exec rake db:migrate
-bundle exec rake db:seed
-rails s
+./setup.sh
 ```
 
 上記を実行し
@@ -128,7 +113,7 @@ http://localhost:3000/
 | 5 | views/articles　以下の全てのファイル |
 | 6 | views/users/show |
 | 7 | db/migrate/20190220133546_init.rb |
-| 8 | db/seed.rb |
+| 8 | db/seeds.rb |
 
 
 です！  
