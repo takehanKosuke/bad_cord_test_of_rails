@@ -1,5 +1,5 @@
 puts "ユーザー作成中"
-User.create!(
+User.create(
   [
     {
       name: 'kosuke',
@@ -16,7 +16,7 @@ User.create!(
   ]
 )
 puts "記事作成中"
-Article.create!(
+Article.create(
   [
     {
       title: 'test article1',
