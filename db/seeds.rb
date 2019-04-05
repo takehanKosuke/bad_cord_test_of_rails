@@ -1,4 +1,4 @@
-puts "ユーザー作成中"
+puts 'ユーザー作成中'
 User.create!(
   [
     {
@@ -9,13 +9,13 @@ User.create!(
     },
     {
       name: 'yuuta',
-      email: "test2@test.com",
+      email: 'test2@test.com',
       password: '111111',
       role: 1,
     },
   ]
 )
-puts "記事作成中"
+puts '記事作成中'
 Article.create!(
   [
     {
@@ -70,4 +70,4 @@ Article.create!(
     },
   ]
 )
-puts "記事作成完了"
+puts '記事作成完了'
