@@ -8,5 +8,11 @@ class Init < ActiveRecord::Migration[5.2]
       t.integer :user_id, null: false
       t.timestamps
     end
+
+    create_table :users do |t|
+      t.string :email, null: false, default: 0
+      t.string :name, null: false
+      t.integer :role, null: false
+    end
   end
 end

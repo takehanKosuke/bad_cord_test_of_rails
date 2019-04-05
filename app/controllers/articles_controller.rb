@@ -16,8 +16,11 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save
-    redirect_to root_path
+    if @article.save
+      redirect_to root_path, flash: { success: 'articleが作成されました' }
+    else
+      redirect_to root_path, flash: { error: 'articleの作成に失敗しました' }
+    end
   end
 
   def edit
@@ -32,8 +35,11 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy
-    redirect_to root_path
+    if @article.destroy
+      redirect_to root_path, flash: { success: 'articleが削除されました' }
+    else
+      redirect_to root_path, flash: { error: 'articleの削除に失敗しました' }
+    end
   end
 
   private
