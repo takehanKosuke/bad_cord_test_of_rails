@@ -6,8 +6,6 @@
     <th>タイトル</th>
     <th>内容</th>
     <th>ライター</th>
-    <th></th>
-    <th></th>
   </tr>
   <% @articles.each do |article| %>
     <tr>
@@ -19,14 +17,13 @@
     </tr>
   <% end %>
 </table>
-<% if current_user.role == "admin" %>
+<% if current_user.role == 'admin' %>
   <h2>userリスト</h2>
   <table>
     <tr>
       <th>名前</th>
       <th>メアド</th>
       <th>権限</th>
-      <th></th>
     </tr>
     <% @users.each do |user| %>
       <tr>
