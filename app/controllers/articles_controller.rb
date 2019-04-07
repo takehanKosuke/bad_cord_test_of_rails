@@ -32,16 +32,19 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy
-    redirect_to root_path
+    if @article.destroy
+      redirect_to root_path, flash: { success: 'articleが削除されました' }
+    else
+      redirect_to root_path, flash: { error: 'articleの削除に失敗しました' }
+    end
   end
 
   private
   def article_params
     params.require(:article).permit(
-      :title,
-      :body,
-      :user_id
+        :title,
+        :body,
+        :user_id
     )
   end
 end
