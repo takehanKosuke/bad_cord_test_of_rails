@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  # 削除ができない
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
@@ -37,11 +38,13 @@ class ArticlesController < ApplicationController
   end
 
   private
-  def article_params
-    params.require(:article).permit(
-      :title,
-      :body,
-      :user_id
-    )
-  end
+
+  # インデント修正
+    def article_params
+      params.require(:article).permit(
+        :title,
+        :body,
+        :user_id
+      )
+    end
 end

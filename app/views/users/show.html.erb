@@ -2,23 +2,36 @@
 <h2>名前：<%= current_user.name %></h2>
 <h2>権限：<%= current_user.role_i18n %></h2>
 <table>
+<!-- pv数とライターの表示をtopページに合わせた-->
   <tr>
     <th>タイトル</th>
     <th>内容</th>
+    <th>pv数</th>
+    <th>
     <th>ライター</th>
     <th></th>
     <th></th>
   </tr>
+  <!-- マイページ-->
+  <!-- マイページからは記事を削除できる-->
   <% @articles.each do |article| %>
     <tr>
       <td><%= link_to article.title, article_path(article) %></td>
       <td><%= article.body.html_safe %></td>
+      <td><%= article.pv %></td>
+      <td></td>
       <td><%= "#{article.user.name}" %></td>
-      <td><%= link_to '編集', edit_article_path(article) %></td>
-      <td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: "#{article.title}を削除しますか？" } %></td>
+      <td></td>
+      <td></td>
+      <!-- 編集にidを加えたが削除できない~-->
+      <!-- 編集先を変えたい-->
+      <td><%= link_to '編集', edit_article_path(article.id) %></td>
+      <td><%= link_to '削除', article_path(article.id), data: { confirm: "#{article.title}を削除しますか？" } %></td>
     </tr>
   <% end %>
 </table>
+
+
 <% if current_user.role == "admin" %>
   <h2>userリスト</h2>
   <table>
@@ -38,3 +51,16 @@
     <% end %>
   </table>
 <% end %>
+
+
+
+<!-- まとめ
+
+
+
+
+
+
+
+
+ -->

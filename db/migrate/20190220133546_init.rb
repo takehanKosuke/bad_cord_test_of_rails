@@ -10,3 +10,5 @@ class Init < ActiveRecord::Migration[5.2]
     end
   end
 end
+
+# どこだろう？ schema見ても多分同じ

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  # マイページ
+  
   def show
     redirect_to root_path unless User.find(params[:id]) == current_user
     @articles = current_user.articles
