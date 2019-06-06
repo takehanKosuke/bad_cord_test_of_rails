@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
 
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  
   def index
     @articles = Article.all
   end
 
   def show
-    @article = Article.find(params[:id])
     @article.pv += 1
     @article.save
   end
@@ -16,27 +17,35 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save
-    redirect_to root_path
+    if @article.save
+      redirect_to root_path
+    else
+      redirect_back new_article_url
+    end
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
-    @article.update(article_params)
-    redirect_to root_path
+    if @article.update(article_params)
+      redirect_to root_path
+    else
+      redirect_back edit_article_url
+    end
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to root_path
   end
 
   private
+  
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
   def article_params
     params.require(:article).permit(
       :title,
