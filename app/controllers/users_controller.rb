@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    redirect_to root_path unless User.find(params[:id]) == current_user
+    redirect_to root_path unless params[:id] == current_user.id
     @articles = current_user.articles
     @users = User.all
   end
