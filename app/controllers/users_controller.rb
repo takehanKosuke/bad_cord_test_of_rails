@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    redirect_to root_path if !current_user.admin?
+    redirect_to root_path unless current_user.admin?
     @user = User.find(params[:id])
     if @user.destroy
       redirect_to root_path, flash: { success: 'userが削除されました' }
