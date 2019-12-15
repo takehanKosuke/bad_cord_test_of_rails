@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root "articles#index"
+  root 'articles#index'
   resources :articles
   resources :users, only: %i[show destroy]
 end

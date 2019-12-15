@@ -1,56 +1,55 @@
 class ArticlesController < ApplicationController
-  before_action :article_author, only: %i[edit update destroy]
+  before_action :set_article, only: %i[show edit update destroy]
+  before_action :auth_check, only: %i[update destroy]
 
   def index
-    @articles = Article.all.includes(:user)
+    @articles = Article.all
   end
-  
+
   def show
-    @article = Article.find(params[:id])
-    Article.increment_pv(@article)
+    @article.pv += 1
+    @article.save
   end
 
   def new
-    @article = current_user.articles.new
+    @article = Article.new
   end
 
   def create
-    @article = current_user.articles.new(article_params)
-    if @article.save
-      redirect_to @article, flash: { success: 'articleが作成されました' }
-    else
-      render :new
-    end
+    @article = @current_user.create! article_params
+    redirect_to root_path
+  rescue
+    #error handling
   end
 
   def edit
   end
 
   def update
-    if @article.update(article_params)
-      redirect_to @article, flash: { success: 'articleが更新されました' }
-    else
-      render :edit
-    end
+    @article.update! article_params
+    redirect_to root_path
+  rescue
+    #error handling
   end
 
   def destroy
-    if @article.destroy
-      redirect_to root_path, flash: { success: 'articleが削除されました' }
-    else
-      redirect_to root_path, flash: { error: 'articleの削除に失敗しました' }
-    end
+    @article.destroy!
+    redirect_to root_path
   end
 
   private
-  def article_author
-    @article = current_user.articles.find(params[:id])
-  end
-
   def article_params
     params.require(:article).permit(
       :title,
       :body,
     )
+  end
+
+  def set_article(id)
+    @article = Article.find id
+  end
+
+  def auth_check
+    return redirect_to root_path, flash: { error: 'invalid access' } unless @article.user == current_user
   end
 end

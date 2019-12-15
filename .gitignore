@@ -25,3 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#sqlite
+bad-cord-test-of-rails_development
+bad-cord-test-of-rails_test
