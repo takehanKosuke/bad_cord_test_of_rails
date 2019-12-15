@@ -8,6 +8,7 @@
 <% end %>
 
 <%= form_with model: @article, local: true do |f| %>
+<%# フォームはリファクタリングしたほうがきれいにかけそう %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div>
     <%= f.label :title %>
